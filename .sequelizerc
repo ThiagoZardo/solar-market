@@ -1,0 +1,9 @@
+const path = require('path');
+
+module.exports = {
+  url: process.env.MYSQL_URI || 'mysql://root:123456@127.0.0.1:3306/shopping-cart',
+  'config': path.resolve(__dirname,'dist','database','config', 'config.js'),
+  'models-path': path.resolve(__dirname,'dist','database','models'),
+  'seeders-path': path.resolve(__dirname,'src','database', 'seeders'),
+  'migrations-path': path.resolve(__dirname,'src','database', 'migrations'),
+};
