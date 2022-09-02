@@ -19,9 +19,15 @@ class ProductsController {
             const category = req.query.search;
             if (category) {
                 const search = yield this.productsService.searchCategory(category);
+                if (!search || search.length === 0) {
+                    return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).json({ message: 'Not Found' });
+                }
                 return res.status(http_status_codes_1.StatusCodes.OK).json(search);
             }
             const products = yield this.productsService.listAll();
+            if (!products || products.length === 0) {
+                return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).json({ message: 'Not Found' });
+            }
             return res.status(http_status_codes_1.StatusCodes.OK).json(products);
         });
     }

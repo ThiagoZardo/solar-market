@@ -31,9 +31,14 @@ class ProductsService {
     searchCategory(category) {
         return __awaiter(this, void 0, void 0, function* () {
             const searchCategory = yield this.productsModel.findAll({
-                where: { nameCategory: category },
+                include: [{ model: categories_model_1.default, as: 'categoryInfo' }],
             });
-            return searchCategory;
+            const search = searchCategory.filter((el) => {
+                if (el.categoryInfo)
+                    return el.categoryInfo.nameCategory === category;
+                return 'Erro';
+            });
+            return search;
         });
     }
 }

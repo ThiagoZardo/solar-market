@@ -10,9 +10,15 @@ export default class ProductsController {
     const category = req.query.search as string;
     if (category) {
       const search = await this.productsService.searchCategory(category);
+      if (!search || search.length === 0) {
+        return res.status(StatusCodes.NOT_FOUND).json({ message: 'Not Found' });
+      }
       return res.status(StatusCodes.OK).json(search);
     }
     const products = await this.productsService.listAll();
+    if (!products || products.length === 0) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'Not Found' });
+    }
     return res.status(StatusCodes.OK).json(products);
   }
 }

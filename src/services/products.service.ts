@@ -16,8 +16,12 @@ export default class ProductsService implements IListProducts<ProductsModel> {
 
   async searchCategory(category: string): Promise<ProductsModel[]> {
     const searchCategory = await this.productsModel.findAll({
-      where: { nameCategory: category },
+      include: [{ model: CategoryModel, as: 'categoryInfo' }],
     });
-    return searchCategory;
+    const search = searchCategory.filter((el) => {
+      if (el.categoryInfo) return el.categoryInfo.nameCategory === category;
+      return 'Erro';
+    });
+    return search;
   }
 }

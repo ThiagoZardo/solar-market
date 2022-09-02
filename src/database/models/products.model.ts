@@ -10,7 +10,7 @@ class ProductsModel extends Model {
   declare category?: number;
   declare price?: number;
   declare quantity?: number;
-  // declare categoryInfo?: { id?: number, categoryName: string };
+  declare categoryInfo?: { id?: number, nameCategory?: string };
 }
 
 ProductsModel.init({
