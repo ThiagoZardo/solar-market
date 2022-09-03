@@ -16,6 +16,10 @@ export const CardProduct = styled.div`
     font-size: 12px;
   }
 
+  .title-product {
+    font-weight: bold;
+  }
+
   .value {
     font-size: 18px;
     font-weight: 900;
