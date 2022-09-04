@@ -24,7 +24,6 @@ export const CardProducts = styled.div`
 export const ContainerProducts = styled.div`
   position: absolute;
   display: flex;
-  flex-wrap: wrap;
   margin: 70px 130px;
   width: 75%;
   height: auto;

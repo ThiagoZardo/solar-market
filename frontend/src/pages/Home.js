@@ -73,6 +73,7 @@ class Home extends React.Component {
     return (
       <section>
         <NavHeader>
+          <p className='total'>{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }</p>
           <TextSearchHeader>
             <BodyProducts>
               <Checklist
@@ -82,6 +83,7 @@ class Home extends React.Component {
                 total={total} 
               />
               <button
+                className='btn-cart'
                 onClick={ () => this.setState({ finishSale: true }) }
               >
                 <FaShoppingCart className="icon-cart" />
@@ -93,11 +95,9 @@ class Home extends React.Component {
           </TextSearchHeader>
           {' '}
         </NavHeader>
+
         <Container>
-          <div>
-            <Categories handleButtonSelect={ this.handleButtonSelect } />
-          </div>
-          <p>{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }</p>
+          <Categories handleButtonSelect={ this.handleButtonSelect } />
           <ContainerCardsProducts>
             { listProducts.map((el) => (
               <CardProduct>

@@ -1,4 +1,7 @@
-.popup {
+import styled from 'styled-components';
+
+export const Checklist = styled.div`
+  .popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -64,3 +67,4 @@
 .productsInTheCart {
   display: flex;
 }
+`;

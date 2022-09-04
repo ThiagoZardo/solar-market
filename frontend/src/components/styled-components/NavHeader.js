@@ -17,27 +17,6 @@ export const CartShopHeader = styled.p`
   margin-top: -15px;
 `;
 
-export const SearchInput = styled.div`
-  input[type=text] {
-    background-color: rgba(255,255,255,.7);
-    border: none;
-    box-sizing: border-box;
-    height: 30px;
-    position: relative;
-    width: 900px;
-    -moz-box-sizing: border-box;
-    z-index: 2;
-  }
-  
-  button {
-    cursor: pointer;
-    width: 40px;
-    height: 30px;
-    top: 8px;
-    right: 1px;
-  }
-`;
-
 export const TextSearchHeader = styled.p`
   height: 20px;
 `;

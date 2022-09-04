@@ -15,19 +15,18 @@ class Checklist extends React.Component {
       validate: '',
       cvv: '',
       cpf: '',
-      purchasedProducts: [],
     };
   }
 
   render(props) {
     const { trigger, productsInTheCart, total } = this.props;
-    // const { name, address, number, city, country, numberCard, validate, cvv, cpf, purchasedProducts } = this.state;
     return (trigger && productsInTheCart) ? (
+      <>
       <section className='popup'>
         <div className='popup-inner'>
           <h1>Já é quase seu!</h1>
           <h3>Preencha abaixo os dados para Entrega:</h3>
-          <form>
+          <form className='delivery-form-'>
             <input
               type="text"
               placeholder="Nome Completo:"
@@ -53,11 +52,11 @@ class Checklist extends React.Component {
               type="text"
               placeholder="Estado"
               onChange={ ({ target }) => this.setState({ country: target.value }) }
-            />
+              />
           </form>
 
+          <form className='form-payment'>
           <h3>Dados para Pagamento:</h3>
-          <form>
             <input
               type="text"
               placeholder="Número do Cartão:"
@@ -79,23 +78,29 @@ class Checklist extends React.Component {
               placeholder="cpf do titular do cartão:"
               onChange={ ({ target }) => this.setState({ cpf: target.value }) }
               /><br></br>
+            <button
+            className='btn-finish'
+            onClick={ () => alert('Obrigado a Sua Compra foi efetuada com Sucesso!')}
+            >
+              FINALIZAR COMPRA
+            </button>
+            <p className='value-total'>Valor Total: {total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
           </form>
-
-          <div className='productsInTheCart'>
-            <h3>Produtos no Carrinho:</h3>
-            {productsInTheCart.map((el) => (
-              <>
-              <p>{ el.productName }</p>
-              <img src={ el.image } alt={ el.productName } />
-              <p>{ el.description }</p>
-              <p>{ el.price }</p>
-              </>
-            ))}
-            <p>Valor Total: {total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
-            <button>FINALIZAR COMPRA</button>
-          </div>
         </div>
+
+          <div className='productsInTheCart popup-inner'>
+            {productsInTheCart.map((el) => (
+              <div className='product'>
+              <img src={ el.image } alt={ el.productName } />
+              <p>{ el.productName }</p>
+              <p>{ el.description }</p>
+              <p>{ el.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }</p>
+              </div>
+            ))}
+            
+          </div>
       </section>
+      </>
     ) : '';
 
   }

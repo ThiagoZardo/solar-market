@@ -22,7 +22,6 @@ class Categories extends React.Component {
     const { handleButtonSelect } = this.props;
     return (
       <section className="container-categories">
-        <SideBarCategories><h1>CATEGORIAS</h1></SideBarCategories>
         { categories.map((el) => (
           <label
             key={ el.id }
