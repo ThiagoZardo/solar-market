@@ -12,19 +12,3 @@ export const BodyProducts = styled.div`
     padding: 5px;
   }
 `;
-
-export const CardProducts = styled.div`
-  display: flex;
-  width: 120px;
-  height: 220px;
-  padding: 30px;
-  margin-bottom: 70px;
-`;
-
-export const ContainerProducts = styled.div`
-  position: absolute;
-  display: flex;
-  margin: 70px 130px;
-  width: 75%;
-  height: auto;
-`;

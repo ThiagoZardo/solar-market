@@ -8,6 +8,7 @@ export const CardProduct = styled.div`
   background-color: rgb(192,217,217);
   border-radius: 20px;
 
+
   img {
     max-width: 150px;
   }
@@ -27,10 +28,10 @@ export const CardProduct = styled.div`
 `;
 
 export const ContainerCardsProducts = styled.div`
-  position: absolute;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const Container = styled.div`

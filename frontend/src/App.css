@@ -21,3 +21,14 @@
 .container-categories input[type=radio]{
   display: none;
 }
+
+.text-search-header {
+  height: 20px;
+}
+
+.cart-shop-header {
+  color: black;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: -15px;
+}
