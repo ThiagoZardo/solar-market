@@ -7,7 +7,7 @@ Uma mini-loja virtual com um carrinho de compras
 ## Skills Utilizadas
  - Criação do ambiente de desenvolvimento em docker
  - Banco de dados MySQL com Sequelize
- - Node.js
+ - Node.js e Express
  - Typescript
  - React
  - Styled Components
