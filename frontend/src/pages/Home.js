@@ -6,6 +6,7 @@ import Checklist from '../components/Checklist';
 import { BodyProducts } from '../components/styled-components/BodyProducts';
 import { NavHeader, CartShopHeader, TextSearchHeader, } from '../components/styled-components/NavHeader';
 import { CardProduct, ContainerCardsProducts, Container } from '../components/styled-components/CardProduct';
+import Footer from '../components/Footer';
 
 class Home extends React.Component {
   constructor() {
@@ -71,6 +72,7 @@ class Home extends React.Component {
     const { listProducts, newQuantity, firstClickButton, total, finishSale, productsInTheCart } = this.state
     const { quantity } = this.props;
     return (
+      <>
       <section>
         <NavHeader>
           <p className='total'>{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }</p>
@@ -130,6 +132,8 @@ class Home extends React.Component {
           </ContainerCardsProducts>
         </Container>
       </section>
+      <Footer />
+      </>
     );
   }
 }
