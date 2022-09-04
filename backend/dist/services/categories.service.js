@@ -20,7 +20,6 @@ class CategoriesService {
     listAllCategories() {
         return __awaiter(this, void 0, void 0, function* () {
             const categories = yield this.categoryModel.findAll({});
-            console.log('CATEGORIAS', categories);
             return categories;
         });
     }
