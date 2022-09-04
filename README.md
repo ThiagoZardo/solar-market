@@ -20,19 +20,19 @@ Uma mini-loja virtual com um carrinho de compras
 git clone git@github.com:ThiagoZardo/solar-market.git
 ```
 
- - Na raiz do projeto execute os comandos
+ - Na raiz do projeto execute o comando
 ```
-npm install
 docker-compose up -d
 ```
 
  - Na pasta backend
 ```
 npm run db
-npm start
+npm start 
 ```
 
  - Na pasta frontend
 ```
+npm install
 npm start
 ```
