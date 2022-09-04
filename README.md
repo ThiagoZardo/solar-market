@@ -15,14 +15,24 @@ Uma mini-loja virtual com um carrinho de compras
 
 ## Instruções para baixar e testar o projeto
 
-Clone o repositório
+ -Clone o repositório
 ```
 git clone git@github.com:ThiagoZardo/solar-market.git
 ```
 
-Na raiz do projeto execute os comandos
+ -Na raiz do projeto execute os comandos
 ```
 npm install
+docker-compose up -d
 ```
 
-Inicie o container docker
+ -Na pasta backend
+```
+npm run db
+npm start
+```
+
+ -Na pasta frontend
+````
+npm start
+```
