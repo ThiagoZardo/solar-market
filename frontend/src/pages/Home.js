@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { getProductsFromCategory } from '../services/api';
 import { FaShoppingCart } from 'react-icons/fa';
 import Categories from '../components/Categories';
-// import ShoppingCart from '../pages/ShoppingCart';
+import Checklist from '../components/Checklist';
 import { BodyProducts } from '../components/styled-components/BodyProducts';
 import { NavHeader, CartShopHeader, TextSearchHeader, } from '../components/styled-components/NavHeader';
 import { CardProduct, ContainerCardsProducts, Container } from '../components/styled-components/CardProduct';
@@ -19,6 +18,7 @@ class Home extends React.Component {
       newQuantity: 1,
       total: 0,
       quantity: 0,
+      finishSale: false,
     };
   }
 
@@ -66,23 +66,28 @@ class Home extends React.Component {
       }));
     }
   }
+
   render() {
-    const { listProducts, newQuantity, firstClickButton, total } = this.state
+    const { listProducts, newQuantity, firstClickButton, total, finishSale, productsInTheCart } = this.state
     const { quantity } = this.props;
     return (
       <section>
         <NavHeader>
           <TextSearchHeader>
             <BodyProducts>
-              <FaShoppingCart className="icon-cart" />
+              <Checklist
+                trigger={finishSale}
+                setTrigger={finishSale}
+                productsInTheCart={productsInTheCart} 
+                total={total} 
+              />
+              <button
+                onClick={ () => this.setState({ finishSale: true }) }
+              >
+                <FaShoppingCart className="icon-cart" />
+              </button>
               <CartShopHeader>
-                <Link
-                  data-testid="shopping-cart-button"
-                  to="/ShoppingCart"
-                >
-                  {/* <ShoppingCart productsInTheCart={this.productsInTheCart}/> */}
-                  <p data-testid="shopping-cart-size">{ firstClickButton ? newQuantity : quantity }</p>
-                </Link>
+                <p data-testid="shopping-cart-size">{ firstClickButton ? newQuantity : quantity }</p>
               </CartShopHeader>
             </BodyProducts>
           </TextSearchHeader>

@@ -26,7 +26,7 @@ export const SearchInput = styled.div`
     position: relative;
     width: 900px;
     -moz-box-sizing: border-box;
-    z-index: 915;
+    z-index: 2;
   }
   
   button {
